@@ -342,7 +342,7 @@ textarea.form-control {
 }
 
 .modal-dialog .modal-content {
-  border-radius: 0 !important;
+  border-radius: 4px !important;
   border: none !important;
 }
 
@@ -356,6 +356,97 @@ textarea.form-control {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.btn-close:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.modal-content {
+  border-radius: 4px !important;
+  border: none !important;
+}
+
+.modal-header {
+  background: #0095A0;
+  color: #fff;
+  border-radius: 0 !important;
+  padding: 25px;
+}
+
+.modal-header .modal-title.h4 {
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.add-modal .modal-footer {
+  margin-top: 60px;
+}
+
+.add-modal button.btn.btn-secondary {
+  background: #B7B8BC !important;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05) !important;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 5px !important;
+  padding: 8px 25px;
+  border: none !important;
+}
+
+.add-modal button.btn.btn-secondary i {
+  position: relative;
+  top: 2px;
+  left: -3px;
+  font-size: 15px;
+}
+
+button.btn.btn-primary {
+  background: #0095A0 !important;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05) !important;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 5px !important;
+  padding: 8px 25px;
+  border: none !important;
+}
+
+button.btn.btn-primary i {
+  position: relative;
+  top: 2px;
+  left: -3px;
+  font-size: 15px;
+}
+
+.css-13cymwt-control {
+  height: 45px !important;
+  margin-bottom: 15px;
+}
+
+.css-13cymwt-control .css-t3ipsp-control {
+  height: 45px !important;
+  border-color: #B7B8BC !important;
+}
+
+.css-13cymwt-control .css-1fdsijx-ValueContainer {
+  padding: 4px 20px;
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.modal-body .form-control {
+  height: 45px;
+  margin-bottom: 15px;
+}
+
+.modal-body .form-label {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 10px;
+  color: #74777B;
 }
 
 .recharts-responsive-container {
@@ -374,9 +465,9 @@ textarea.form-control {
 }
 
 .ant-select-selector {
-  height: 50px !important;
+  height: 45px !important;
   border-radius: 0 !important;
-  padding: 10px 20px !important;
+  padding: 8px 20px !important;
 }
 
 span.ant-select-selection-item {
@@ -417,10 +508,20 @@ span.ant-select-selection-item {
 
 /* Max width 767px */
 @media (max-width: 767px) {
+  .product-area {
+    padding-top: 50px;
+  }
+  .product-area .top-content.mb-4 {
+    text-align: center;
+    margin-bottom: 40px !important;
+  }
+  .product-area .top-content.mb-4 h3 {
+    margin-bottom: 15px;
+  }
   .product-area .select-btn {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .product-area .tag-list {
     display: block;
