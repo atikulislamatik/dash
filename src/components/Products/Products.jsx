@@ -8,36 +8,14 @@ const { Option } = Select;
 const Products = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("all");
-  const [visibleItems, setVisibleItems] = useState(5);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      const fetchItems = async () => {
-        const response = await fetch("./data.json");
-        const data = await response.json();
-        setData(data);
-        setLoading(false);
-      };
-
-      fetchItems();
-    }, 5000);
-  }, []);
-
-  function handleScroll() {
-    const windowHeight = window.innerHeight;
-    const documentHeight = document.documentElement.offsetHeight;
-    const scrollTop = document.documentElement.scrollTop;
-
-    if (scrollTop + windowHeight >= documentHeight) {
-      setVisibleItems((prev) => prev + 10);
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const fetchItems = async () => {
+      const response = await fetch("./data.json");
+      const data = await response.json();
+      setData(data);
+    };
+    fetchItems();
   }, []);
 
   if (!data) {
@@ -117,10 +95,10 @@ const Products = () => {
         <div className="container">
           <div className="top-content mb-4">
             <div className="row">
-              <div className="col-9">
+              <div className="col-lg-9">
                 <h3>ALL Products</h3>
               </div>
-              <div className="col-3">
+              <div className="col-lg-3">
                 <div className="select-btn form-group d-flex align-items-center">
                   <label>Sort by:</label>
                   <Select
@@ -140,37 +118,31 @@ const Products = () => {
           </div>
 
           <div className="row">
-            <Table>
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th>Ram/Rom</th>
-                  <th>Tag</th>
-                  <th className="text-end">Price</th>
-                </tr>
-              </thead>
-
-              {loading ? (
-                <div>Loading...</div>
-              ) : (
-                <>
-                  {filteredData.slice(0, visibleItems).map((product, index) => (
+            <div className="table-responsive">
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Ram/Rom</th>
+                    <th>Tag</th>
+                    <th className="text-end">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredData.map((product, index) => (
                     <>
-                      {visibleItems}
-                      <tbody>
-                        <tr>
-                          <SingleProduct
-                            product={product}
-                            key={index}
-                            getTags={getTags}
-                          />
-                        </tr>
-                      </tbody>
+                      <tr>
+                        <SingleProduct
+                          product={product}
+                          key={index}
+                          getTags={getTags}
+                        />
+                      </tr>
                     </>
                   ))}
-                </>
-              )}
-            </Table>
+                </tbody>
+              </Table>
+            </div>
           </div>
         </div>
       </div>

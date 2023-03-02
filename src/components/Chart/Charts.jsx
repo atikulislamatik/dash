@@ -9,10 +9,10 @@ const Charts = () => {
             <section className="main-chart-area">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-6">
+                        <div className="col-lg-5">
                           <ChartPie/>
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-7">
                            <BarCharts/>
                         </div>
                     </div>

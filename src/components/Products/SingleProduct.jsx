@@ -56,11 +56,28 @@ const SingleProduct = ({ product, getTags }) => {
       </td>
       <td style={{ width: 285 }}>
         <div className="tag-list">
-          {tags.map((tag, index) => (
-            <p key={index} className={`tag tag${index + 1}`}>
-              {tag}
-            </p>
-          ))}
+          {tags.map((tag, index) => {
+            let background, border;
+            if (tag === "Best Camera") {
+              background = "rgba(135, 76, 114, 0.1)";
+              border = "1px solid #874C72";
+            } else if (tag === "Best Value") {
+              background = "rgba(221, 158, 16, 0.1)";
+              border = "1px solid #DD9E10";
+            } else {
+              background = "rgba(17, 160, 219, 0.1)";
+              border = "1px solid #11A0DB";
+            }
+            return (
+              <p
+                key={index}
+                style={{ background, border }}
+                className={`tag tag${index + 1}`}
+              >
+                {tag}
+              </p>
+            );
+          })}
         </div>
       </td>
       <td style={{ width: 200 }}>

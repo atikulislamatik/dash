@@ -356,6 +356,21 @@ textarea {
     }
 }
 
+.recharts-responsive-container {
+    position: relative;
+
+    .recharts-legend-wrapper {
+        right: 45px !important;
+    }
+
+    li.recharts-legend-item {
+        margin-bottom: 10px !important;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
 // Ant design
 .ant-select-selector {
     height: 50px !important;
@@ -406,3 +421,31 @@ span.ant-select-selection-item {
 
 
 // 
+
+/* Max width 767px */
+@media (max-width: 767px) {
+    td {
+        // width: 100% !important;
+    }
+
+    .product-area .select-btn {
+        justify-content: start;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+    }
+
+    th {
+        font-weight: bold;
+    }
+}
