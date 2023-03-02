@@ -12,13 +12,17 @@ const Products = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      const response = await fetch("./data.json");
-      const data = await response.json();
-      setData(data);
-      setLoading(false);
-    };
-    fetchItems();
+    setLoading(true);
+    setTimeout(() => {
+      const fetchItems = async () => {
+        const response = await fetch("./data.json");
+        const data = await response.json();
+        setData(data);
+        setLoading(false);
+      };
+
+      fetchItems();
+    }, 5000);
   }, []);
 
   function handleScroll() {
