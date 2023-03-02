@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 
 const SingleProduct = ({ product, getTags }) => {
+  const tags = getTags(product);
+
   const [showModal, setShowModal] = useState(false);
 
   const handlePhoneClick = () => {
@@ -53,11 +55,13 @@ const SingleProduct = ({ product, getTags }) => {
         </p>
       </td>
       <td style={{ width: 285 }}>
-        <p class="tag-list">
-          {getTags(product)
-            .map((tag) => `${tag}`)
-            .join("  ")}
-        </p>
+        <div className="tag-list">
+          {tags.map((tag, index) => (
+            <p key={index} className={`tag tag${index + 1}`}>
+              {tag}
+            </p>
+          ))}
+        </div>
       </td>
       <td style={{ width: 200 }}>
         <p className="price text-end">TK {product.phone_price}</p>

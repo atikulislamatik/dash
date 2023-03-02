@@ -245,6 +245,19 @@ textarea {
         }
     }
 
+    .tag-list {
+        display: flex;
+
+        .tag {
+            background: rgba(221, 158, 16, 0.1);
+            border: 0.5px solid #DD9E10;
+            border-radius: 2px;
+            padding: 4px 18px;
+            margin: 0 !important;
+            margin-right: 10px !important;
+        }
+    }
+
     .model {
         align-items: center;
 
@@ -393,4 +406,3 @@ span.ant-select-selection-item {
 
 
 // 
-

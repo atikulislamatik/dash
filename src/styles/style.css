@@ -240,6 +240,21 @@ textarea.form-control {
   color: #74777B;
 }
 
+.product-area .tag-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.product-area .tag-list .tag {
+  background: rgba(221, 158, 16, 0.1);
+  border: 0.5px solid #DD9E10;
+  border-radius: 2px;
+  padding: 4px 18px;
+  margin: 0 !important;
+  margin-right: 10px !important;
+}
+
 .product-area .model {
   -webkit-box-align: center;
       -ms-flex-align: center;
