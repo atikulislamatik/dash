@@ -118,8 +118,8 @@ const Products = () => {
           </div>
 
           <div className="row">
-            <div className="table-responsive">
-              <Table>
+            <div className="data-table">
+              <Table responsive="sm">
                 <thead>
                   <tr>
                     <th>Model</th>

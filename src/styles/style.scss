@@ -226,6 +226,10 @@ textarea {
 .main-chart-area {
     position: relative;
     padding-top: 70px;
+
+    .title {
+        margin-bottom: 30px;
+    }
 }
 
 // Product area
@@ -252,7 +256,7 @@ textarea {
             background: rgba(221, 158, 16, 0.1);
             border: 0.5px solid #DD9E10;
             border-radius: 2px;
-            padding: 4px 18px;
+            padding: 4px 15px;
             margin: 0 !important;
             margin-right: 10px !important;
         }
@@ -263,6 +267,19 @@ textarea {
 
         a {
             cursor: pointer;
+            width: 99px !important;
+            height: 75px !important;
+
+            .img {
+                width: 100%;
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
         }
 
         .content {
@@ -284,16 +301,7 @@ textarea {
             }
         }
 
-        .img {
-            width: 99px;
-            height: 75px;
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
     }
 
     .ram {
@@ -424,28 +432,53 @@ span.ant-select-selection-item {
 
 /* Max width 767px */
 @media (max-width: 767px) {
-    td {
-        // width: 100% !important;
-    }
 
     .product-area .select-btn {
         justify-content: start;
     }
 
-    .table-responsive {
-        overflow-x: auto;
+    .product-area .tag-list {
+        display: block;
     }
 
-    table {
-        font-size: 0.9rem;
+    .product-area .tag-list .tag {
+        margin-right: 0 !important;
+        display: block !important;
+        padding: 4px 10px;
+        font-size: 13px;
+        width: 140px;
+        text-align: center;
+        margin-bottom: 5px !important;
+
     }
 
-    th,
-    td {
-        padding: 0.5rem;
+    .product-area .model .content {
+        width: 140px;
     }
 
-    th {
-        font-weight: bold;
+    .product-area .tag-list .tag:last-child {
+        margin-bottom: 0;
+    }
+
+    .table-responsive-sm {
+        border: 1px solid #d9d9d9 !important;
+        padding: 10px;
+    }
+
+    .recharts-responsive-container .recharts-legend-wrapper {
+        top: -10px !important;
+        right: 30% !important;
+    }
+
+    .ant-select-selector {
+        height: 45px !important;
+    }
+
+    .title h3 {
+        text-align: center;
+    }
+
+    .recharts-wrapper .recharts-pie {
+        transform: translateX(12%) translateY(5%);
     }
 }

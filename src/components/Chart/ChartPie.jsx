@@ -5,7 +5,7 @@ import {
   Pie,
   PieChart,
   ResponsiveContainer,
-  Tooltip
+  Tooltip,
 } from "recharts";
 
 const COLORS = ["#84AF27", "#FFC239", "#0095A0"];
@@ -43,35 +43,41 @@ const ChartPie = () => {
   ];
 
   return (
-    <ResponsiveContainer width="100%"    height={400} >
-      <PieChart width="100%"    height={400} >
-        <Pie
-          data={pieData}
-          cx={120}
-          cy={200}
-          labelLine={true}
-          outerRadius={120}
-          fill="#8884d8"
-          dataKey="value"
-        >
-          {pieData.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-        <Legend
-          align="right"
-          verticalAlign="middle"
-          layout="vertical"
-          formatter={(value) =>
-            `${value} (${pieData
-              .find((d) => d.name === value)
-              .value.toFixed(0)}%)`
-          }
-        />
+    <>
+   
+      <ResponsiveContainer width="100%" height={400}>
+        <PieChart width="100%" height={400}>
+          <Pie
+            data={pieData}
+            cx={120}
+            cy={200}
+            labelLine={true}
+            outerRadius={120}
+            fill="#8884d8"
+            dataKey="value"
+          >
+            {pieData.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+          <Legend
+            align="right"
+            verticalAlign="middle"
+            layout="vertical"
+            formatter={(value) =>
+              `${value} (${pieData
+                .find((d) => d.name === value)
+                .value.toFixed(0)}%)`
+            }
+          />
 
-        <Tooltip formatter={(value) => `${value.toFixed(0)}%`} />
-      </PieChart>
-    </ResponsiveContainer>
+          <Tooltip formatter={(value) => `${value.toFixed(0)}%`} />
+        </PieChart>
+      </ResponsiveContainer>
+    </>
   );
 };
 

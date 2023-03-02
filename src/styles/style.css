@@ -221,6 +221,10 @@ textarea.form-control {
   padding-top: 70px;
 }
 
+.main-chart-area .title {
+  margin-bottom: 30px;
+}
+
 .product-area {
   position: relative;
   padding: 130px 0;
@@ -250,7 +254,7 @@ textarea.form-control {
   background: rgba(221, 158, 16, 0.1);
   border: 0.5px solid #DD9E10;
   border-radius: 2px;
-  padding: 4px 18px;
+  padding: 4px 15px;
   margin: 0 !important;
   margin-right: 10px !important;
 }
@@ -263,6 +267,20 @@ textarea.form-control {
 
 .product-area .model a {
   cursor: pointer;
+  width: 99px !important;
+  height: 75px !important;
+}
+
+.product-area .model a .img {
+  width: 100%;
+  height: 100%;
+}
+
+.product-area .model a .img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .product-area .model .content {
@@ -282,18 +300,6 @@ textarea.form-control {
   line-height: 24px;
   color: #74777B;
   margin-bottom: 0;
-}
-
-.product-area .model .img {
-  width: 99px;
-  height: 75px;
-}
-
-.product-area .model .img img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .product-area .ram {
@@ -416,18 +422,41 @@ span.ant-select-selection-item {
         -ms-flex-pack: start;
             justify-content: start;
   }
-  .table-responsive {
-    overflow-x: auto;
+  .product-area .tag-list {
+    display: block;
   }
-  table {
-    font-size: 0.9rem;
+  .product-area .tag-list .tag {
+    margin-right: 0 !important;
+    display: block !important;
+    padding: 4px 10px;
+    font-size: 13px;
+    width: 140px;
+    text-align: center;
+    margin-bottom: 5px !important;
   }
-  th,
-  td {
-    padding: 0.5rem;
+  .product-area .model .content {
+    width: 140px;
   }
-  th {
-    font-weight: bold;
+  .product-area .tag-list .tag:last-child {
+    margin-bottom: 0;
+  }
+  .table-responsive-sm {
+    border: 1px solid #d9d9d9 !important;
+    padding: 10px;
+  }
+  .recharts-responsive-container .recharts-legend-wrapper {
+    top: -10px !important;
+    right: 30% !important;
+  }
+  .ant-select-selector {
+    height: 45px !important;
+  }
+  .title h3 {
+    text-align: center;
+  }
+  .recharts-wrapper .recharts-pie {
+    -webkit-transform: translateX(12%) translateY(5%);
+            transform: translateX(12%) translateY(5%);
   }
 }
 /*# sourceMappingURL=style.css.map */
