@@ -8,14 +8,32 @@ const { Option } = Select;
 const Products = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("all");
+  const [visibleItems, setVisibleItems] = useState(5);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchItems = async () => {
       const response = await fetch("./data.json");
       const data = await response.json();
       setData(data);
+      setLoading(false);
     };
     fetchItems();
+  }, []);
+
+  function handleScroll() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.offsetHeight;
+    const scrollTop = document.documentElement.scrollTop;
+
+    if (scrollTop + windowHeight >= documentHeight) {
+      setVisibleItems((prev) => prev + 10);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (!data) {
@@ -61,11 +79,29 @@ const Products = () => {
 
   const getTags = (item) => {
     const tags = [];
-    if ( item.phone_price <= 20000 && item.ram >= 4 && item.storage >= 64 &&  (item.brand === "Xiaomi" || item.brand === "Realme")) {
+    if (
+      item.phone_price <= 20000 &&
+      item.ram >= 4 &&
+      item.storage >= 64 &&
+      (item.brand === "Xiaomi" || item.brand === "Realme")
+    ) {
       tags.push("Best Value");
-    }  if (item.phone_details.mainCamera && item.phone_details.selfieCamera &&  item.storage >= 64 &&  item.phone_details.external.includes("microSDXC (dedicated slot"))  {
+    }
+    if (
+      item.phone_details.mainCamera &&
+      item.phone_details.selfieCamera &&
+      item.storage >= 64 &&
+      item.phone_details.external.includes("microSDXC (dedicated slot")
+    ) {
       tags.push("Best Camera");
-    }  if ( item.phone_details.chipset.includes("Snapdragon") &&  item.phone_price > 20000 &&  item.ram > 4 &&  item.storage >= 128 &&    item.display_amoled === true) {
+    }
+    if (
+      item.phone_details.chipset.includes("Snapdragon") &&
+      item.phone_price > 20000 &&
+      item.ram > 4 &&
+      item.storage >= 128 &&
+      item.display_amoled === true
+    ) {
       tags.push("Best Performance");
     }
     return tags;
@@ -109,19 +145,27 @@ const Products = () => {
                   <th className="text-end">Price</th>
                 </tr>
               </thead>
-              {filteredData.map((product, index) => (
+
+              {loading ? (
+                <div>Loading...</div>
+              ) : (
                 <>
-                  <tbody>
-                    <tr>
-                      <SingleProduct
-                        product={product}
-                        key={index}
-                        getTags={getTags}
-                      />
-                    </tr>
-                  </tbody>
+                  {filteredData.slice(0, visibleItems).map((product, index) => (
+                    <>
+                      {visibleItems}
+                      <tbody>
+                        <tr>
+                          <SingleProduct
+                            product={product}
+                            key={index}
+                            getTags={getTags}
+                          />
+                        </tr>
+                      </tbody>
+                    </>
+                  ))}
                 </>
-              ))}
+              )}
             </Table>
           </div>
         </div>
@@ -131,4 +175,3 @@ const Products = () => {
 };
 
 export default Products;
-
