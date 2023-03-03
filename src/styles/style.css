@@ -612,6 +612,19 @@ textarea.form-control {
   line-height: 24px;
 }
 
+.loader {
+  text-align: center;
+}
+
+.loader .spinner-border.text-primary {
+  color: #0095A0 !important;
+}
+
+.loader .spinner-border {
+  width: 3.2rem !important;
+  height: 3.2rem !important;
+}
+
 .ant-select-selector {
   height: 45px !important;
   border-radius: 0 !important;
@@ -719,6 +732,9 @@ span.ant-select-selection-item {
   .navbar-brand h3 {
     font-size: 25px;
     line-height: 40px;
+  }
+  p.price.text-end {
+    width: 100px;
   }
 }
 

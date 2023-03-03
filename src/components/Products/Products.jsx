@@ -1,6 +1,7 @@
 import { Select } from "antd";
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
+import jsonData from "../../data/data.json";
 import SingleProduct from "./SingleProduct";
 
 const { Option } = Select;
@@ -8,19 +9,37 @@ const { Option } = Select;
 const Products = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("all");
+  const [startIndex, setStartIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      const response = await fetch("./data.json");
-      const data = await response.json();
-      setData(data);
-    };
-    fetchItems();
+    setData(jsonData.slice(startIndex, startIndex + 20));
   }, []);
 
-  if (!data) {
-    return <div>Loading...</div>;
-  }
+  useEffect(() => {
+    function handleScroll() {
+      const { scrollTop, scrollHeight, clientHeight } =
+        document.documentElement;
+      if (
+        scrollTop + clientHeight >= scrollHeight &&
+        startIndex + 20 < jsonData.length &&
+        !isLoading
+      ) {
+        setIsLoading(true);
+        setTimeout(() => {
+          setData((prevData) => [
+            ...prevData,
+            ...jsonData.slice(startIndex + 20, startIndex + 40),
+          ]);
+          setStartIndex((prevStartIndex) => prevStartIndex + 20);
+          setIsLoading(false);
+        }, 1500);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [startIndex, isLoading]);
 
   const filteredData =
     filter === "all"
@@ -89,6 +108,7 @@ const Products = () => {
     return tags;
   };
 
+  
   return (
     <>
       <div className="product-area">
@@ -140,8 +160,18 @@ const Products = () => {
                       </tr>
                     </>
                   ))}
+                 
                 </tbody>
               </Table>
+              {isLoading && (
+                    <>
+                      <div className="loader">
+                        <div class="spinner-border text-primary" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      </div>
+                    </>
+                  )}
             </div>
           </div>
         </div>
