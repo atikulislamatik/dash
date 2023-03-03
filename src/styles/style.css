@@ -204,6 +204,15 @@ textarea.form-control {
   padding: 20px;
 }
 
+.navbar-area .navbar-toggler:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.navbar-area .navbar-light .navbar-toggler {
+  border-color: #0095A0 !important;
+}
+
 .navbar-area .navbar-brand {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -214,6 +223,135 @@ textarea.form-control {
   font-size: 32px;
   line-height: 45px;
   color: #ffffff;
+}
+
+.navbar-area .header-btn {
+  padding: 0px 30px !important;
+  color: #0095A0 !important;
+  background: #fff !important;
+  border-radius: 0 !important;
+  border: none !important;
+  height: 45px;
+}
+
+.navbar-area .search-bar {
+  position: relative;
+  width: 400px;
+  margin-right: 10px;
+}
+
+.navbar-area .search-bar .form-control {
+  background: #0095A0;
+  border: 1px solid #fff !important;
+  padding: 20px 20px;
+  border-radius: 0;
+  height: 45px;
+  color: #fff;
+}
+
+.navbar-area .search-bar .form-control::-webkit-input-placeholder {
+  color: #fff;
+  font-size: 13px;
+}
+
+.navbar-area .search-bar .form-control:-ms-input-placeholder {
+  color: #fff;
+  font-size: 13px;
+}
+
+.navbar-area .search-bar .form-control::-ms-input-placeholder {
+  color: #fff;
+  font-size: 13px;
+}
+
+.navbar-area .search-bar .form-control::placeholder {
+  color: #fff;
+  font-size: 13px;
+}
+
+.navbar-area .search-bar button {
+  position: absolute;
+  top: 0;
+  right: 3px;
+  background: transparent !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.navbar-area .search-bar button i {
+  color: #fff !important;
+  font-size: 22px;
+}
+
+.navbar-area .navbar-toggler {
+  position: relative !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.navbar-area .navbar-toggler span {
+  display: block !important;
+  background-color: #fff !important;
+  height: 2px !important;
+  width: 30px !important;
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+  -webkit-transform: rotate(0deg) !important;
+          transform: rotate(0deg) !important;
+  left: 0 !important;
+  opacity: 1 !important;
+}
+
+.navbar-area .navbar-toggler:focus,
+.navbar-area .navbar-toggler:active {
+  outline: 0 !important;
+}
+
+.navbar-area .navbar-toggler span:nth-child(1),
+.navbar-area .navbar-toggler span:nth-child(3) {
+  -webkit-transition: -webkit-transform 0.35s ease-in-out !important;
+  transition: -webkit-transform 0.35s ease-in-out !important;
+  transition: transform 0.35s ease-in-out !important;
+  transition: transform 0.35s ease-in-out, -webkit-transform 0.35s ease-in-out !important;
+  transition: transform 0.35s ease-in-out !important;
+}
+
+.navbar-area .navbar-toggler:not(.collapsed) span:nth-child(1) {
+  position: absolute !important;
+  left: 12px !important;
+  top: 10px !important;
+  -webkit-transform: rotate(135deg) !important;
+          transform: rotate(135deg) !important;
+  opacity: 0.9 !important;
+}
+
+.navbar-area .navbar-toggler:not(.collapsed) span:nth-child(2) {
+  height: 12px !important;
+  visibility: hidden !important;
+  background-color: transparent !important;
+}
+
+.navbar-area .navbar-toggler:not(.collapsed) span:nth-child(3) {
+  position: absolute !important;
+  left: 12px !important;
+  top: 10px !important;
+  -webkit-transform: rotate(-135deg) !important;
+          transform: rotate(-135deg) !important;
+  opacity: 0.9 !important;
+}
+
+.sticky {
+  background: #0095A0;
+  -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  position: fixed;
+  width: 100%;
+  -webkit-animation: fadeInDown 200ms ease-in-out;
+          animation: fadeInDown 200ms ease-in-out;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .main-chart-area {
@@ -402,7 +540,7 @@ textarea.form-control {
   font-size: 15px;
 }
 
-button.btn.btn-primary {
+.add-modal button.btn.btn-primary {
   background: #0095A0 !important;
   -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05) !important;
           box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05) !important;
@@ -411,7 +549,7 @@ button.btn.btn-primary {
   border: none !important;
 }
 
-button.btn.btn-primary i {
+.add-modal button.btn.btn-primary i {
   position: relative;
   top: 2px;
   left: -3px;
@@ -423,13 +561,18 @@ button.btn.btn-primary i {
   margin-bottom: 15px;
 }
 
-.css-13cymwt-control .css-t3ipsp-control {
-  height: 45px !important;
-  border-color: #B7B8BC !important;
-}
-
 .css-13cymwt-control .css-1fdsijx-ValueContainer {
   padding: 4px 20px;
+}
+
+.css-t3ipsp-control {
+  min-height: 45px !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.css-t3ipsp-control:hover {
+  border-color: #B7B8BC !important;
 }
 
 .modal-body {
@@ -447,6 +590,11 @@ button.btn.btn-primary i {
   line-height: 21px;
   margin-bottom: 10px;
   color: #74777B;
+}
+
+.btn-close {
+  background: none !important;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z' fill='rgba(255,255,255,1)'/%3E%3C/svg%3E") !important;
 }
 
 .recharts-responsive-container {
@@ -555,9 +703,22 @@ span.ant-select-selection-item {
   .title h3 {
     text-align: center;
   }
+  .main-chart-area {
+    padding-top: 50px;
+  }
   .recharts-wrapper .recharts-pie {
     -webkit-transform: translateX(12%) translateY(5%);
             transform: translateX(12%) translateY(5%);
+  }
+  .search-bar {
+    width: auto !important;
+    margin-right: 0 !important;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  .navbar-brand h3 {
+    font-size: 25px;
+    line-height: 40px;
   }
 }
 /*# sourceMappingURL=style.css.map */

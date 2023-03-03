@@ -208,6 +208,14 @@ textarea {
     background: $main-color;
     padding: 20px;
 
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
+
+    .navbar-light .navbar-toggler {
+        border-color: $main-color !important;
+    }
+
     .navbar-brand {
         padding-top: 0 !important;
         padding-bottom: 0 !important;
@@ -220,7 +228,113 @@ textarea {
             color: $white-color;
         }
     }
+
+    .header-btn {
+        padding: 0px 30px !important;
+        color: $main-color !important;
+        background: #fff !important;
+        border-radius: 0 !important;
+        border: none !important;
+        height: 45px;
+    }
+
+    .search-bar {
+        position: relative;
+        width: 400px;
+        margin-right: 10px;
+
+        .form-control {
+            background: $main-color;
+            border: 1px solid #fff !important;
+            padding: 20px 20px;
+            border-radius: 0;
+            height: 45px;
+            color: #fff;
+
+            &::placeholder {
+                color: #fff;
+                font-size: 13px;
+            }
+        }
+
+        button {
+            position: absolute;
+            top: 0;
+            right: 3px;
+            background: transparent !important;
+            color: #fff !important;
+            border: none !important;
+            border-radius: 0 !important;
+
+            i {
+                color: #fff !important;
+                font-size: 22px;
+            }
+        }
+    }
+
+    .navbar-toggler {
+        position: relative !important;
+        background-color: transparent !important;
+        border-color: transparent !important;
+    }
+
+    .navbar-toggler span {
+        display: block !important;
+        background-color: #fff !important;
+        height: 2px !important;
+        width: 30px !important;
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+        transform: rotate(0deg) !important;
+        left: 0 !important;
+        opacity: 1 !important;
+    }
+
+    .navbar-toggler:focus,
+    .navbar-toggler:active {
+        outline: 0 !important;
+    }
+
+    .navbar-toggler span:nth-child(1),
+    .navbar-toggler span:nth-child(3) {
+        transition: transform 0.35s ease-in-out !important;
+        transition: transform 0.35s ease-in-out !important;
+    }
+
+    .navbar-toggler:not(.collapsed) span:nth-child(1) {
+        position: absolute !important;
+        left: 12px !important;
+        top: 10px !important;
+        transform: rotate(135deg) !important;
+        opacity: 0.9 !important;
+    }
+
+    .navbar-toggler:not(.collapsed) span:nth-child(2) {
+        height: 12px !important;
+        visibility: hidden !important;
+        background-color: transparent !important;
+    }
+
+    .navbar-toggler:not(.collapsed) span:nth-child(3) {
+        position: absolute !important;
+        left: 12px !important;
+        top: 10px !important;
+        transform: rotate(-135deg) !important;
+        opacity: 0.9 !important;
+    }
 }
+
+.sticky {
+    background: $main-color;
+    box-shadow: $box-shadow;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    animation: fadeInDown 200ms ease-in-out;
+    transition: 0.3s;
+}
+
 
 // Main chart area
 .main-chart-area {
@@ -407,36 +521,46 @@ textarea {
             font-size: 15px;
         }
     }
-}
 
-button.btn.btn-primary {
-    background: $main-color !important;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05) !important;
-    border-radius: 5px !important;
-    padding: 8px 25px;
-    border: none !important;
+    button.btn.btn-primary {
+        background: $main-color !important;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05) !important;
+        border-radius: 5px !important;
+        padding: 8px 25px;
+        border: none !important;
 
-    i {
-        position: relative;
-        top: 2px;
-        left: -3px;
-        font-size: 15px;
+        i {
+            position: relative;
+            top: 2px;
+            left: -3px;
+            font-size: 15px;
+        }
+
     }
 
+
 }
+
 
 
 .css-13cymwt-control {
     height: 45px !important;
     margin-bottom: 15px;
 
-    .css-t3ipsp-control {
-        height: 45px !important;
-        border-color: #B7B8BC !important;
-    }
-
     .css-1fdsijx-ValueContainer {
         padding: 4px 20px;
+    }
+
+
+}
+
+.css-t3ipsp-control {
+    min-height: 45px !important;
+    box-shadow: none !important;
+    ;
+
+    &:hover {
+        border-color: #B7B8BC !important;
     }
 }
 
@@ -455,8 +579,14 @@ button.btn.btn-primary {
         margin-bottom: 10px;
         color: #74777B;
     }
+
 }
 
+
+.btn-close {
+    background: none !important;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z' fill='rgba(255,255,255,1)'/%3E%3C/svg%3E") !important;
+}
 
 .recharts-responsive-container {
     position: relative;
@@ -585,10 +715,24 @@ span.ant-select-selection-item {
         text-align: center;
     }
 
+    .main-chart-area {
+        padding-top: 50px;
+    }
+
     .recharts-wrapper .recharts-pie {
         transform: translateX(12%) translateY(5%);
     }
 
+    .search-bar {
+        width: auto !important;
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
 
+    .navbar-brand h3 {
+        font-size: 25px;
+        line-height: 40px;
+    }
 
 }
