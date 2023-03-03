@@ -119,31 +119,30 @@ const Products = () => {
 
           <div className="row">
             <div className="data-table">
-                <Table responsive="sm">
-                  <thead>
-                    <tr>
-                      <th>Model</th>
-                      <th>Ram/Rom</th>
-                      <th>Tag</th>
-                      <th className="text-end">Price</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredData.map((product, index) => (
-                      <>
-                        <tr>
-                          <SingleProduct
-                            product={product}
-                            key={index}
-                            getTags={getTags}
-                          />
-                        </tr>
-                      </>
-                    ))}
-                  </tbody>
-                </Table>
-              </div>
-
+              <Table responsive="sm">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Ram/Rom</th>
+                    <th>Tag</th>
+                    <th className="text-end">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredData.map((product, index) => (
+                    <>
+                      <tr>
+                        <SingleProduct
+                          product={product}
+                          key={index}
+                          getTags={getTags}
+                        />
+                      </tr>
+                    </>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
           </div>
         </div>
       </div>
