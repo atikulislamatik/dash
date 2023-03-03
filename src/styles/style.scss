@@ -652,7 +652,7 @@ span.ant-select-selection-item {
 }
 
 
-// 
+// Mobile responsive
 
 /* Max width 767px */
 @media (max-width: 767px) {
@@ -735,4 +735,21 @@ span.ant-select-selection-item {
         line-height: 40px;
     }
 
+}
+
+// Tab responsive
+@media (min-width: 768px) and (max-width: 991px) {
+    .search-bar {
+        width: auto !important;
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    .recharts-wrapper .recharts-pie {
+        transform: translateX(3%) translateY(-15%);
+    }
+    .recharts-responsive-container .recharts-legend-wrapper {
+        right: 31% !important;
+        top: 72% !important;
+    }
 }

@@ -27,8 +27,10 @@ const Header = () => {
     <>
       <Navbar expand="lg" className={`navbar-area ${isSticky ? "sticky" : ""}`}>
         <Container>
-          <Navbar.Brand href="/">
-            <h3>Logo</h3>
+          <Navbar.Brand href="#">
+            <Nav.Link href="/">
+              <h3>Logo</h3>
+            </Nav.Link>
           </Navbar.Brand>
 
           <Navbar.Toggle
